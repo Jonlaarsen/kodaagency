@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS work (
   title        TEXT    NOT NULL,
   excerpt      TEXT,                                 -- short blurb for cards (optional)
   desc         TEXT    NOT NULL,                     -- full description for detail page
-  thumbnail    TEXT,                                 -- URL or path, e.g. "/images/haiven.png"
+  thumbnail    TEXT,                                 -- URL or path, e.g. "/images/haiven.webp"
   link         TEXT    NOT NULL,                     -- live project URL
   repo_url     TEXT,                                 -- GitHub / source (optional)
   stack        TEXT    NOT NULL,                     -- comma-separated: "Next.js, TypeScript, Supabase"
