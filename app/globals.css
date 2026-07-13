@@ -1,22 +1,212 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * ═══════════════════════════════════════════════════════
+ * LIGHT THEME
+ * Edit the accent palette below to retheme light mode
+ * ═══════════════════════════════════════════════════════
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Surfaces */
+  --palette-bg: #f7fff7;
+  --palette-fg: #0f172a;
+  --palette-muted: #64748b;
+  --palette-surface: #ffffff;
+
+  /* Accent — light mode */
+  --palette-accent: #b20868;
+  --palette-accent-light: #b51971;
+  --palette-accent-dark: #8a0652;
+  --palette-accent-bright: #e8329a;
+  --palette-accent-soft: #d41a82;
+
+  --background: var(--palette-bg);
+  --foreground: var(--palette-fg);
+  --muted: var(--palette-muted);
+  --border: color-mix(in srgb, var(--palette-fg) 12%, transparent);
+  --surface: var(--palette-surface);
+  --surface-muted: color-mix(in srgb, var(--palette-fg) 4%, transparent);
+  --surface-overlay: color-mix(in srgb, var(--palette-surface) 80%, transparent);
+  --nav-bg: color-mix(in srgb, var(--palette-bg) 82%, transparent);
+
+  --brand: var(--palette-accent-dark);
+  --accent: var(--palette-accent);
+  --accent-soft: var(--palette-accent-light);
+  --label: color-mix(in srgb, var(--palette-accent-dark) 80%, transparent);
+  --link: var(--palette-accent-dark);
+
+  --hero-divider: color-mix(in srgb, var(--palette-accent) 30%, transparent);
+  --hover-border: color-mix(in srgb, var(--palette-accent) 50%, transparent);
+  --hover-border-muted: color-mix(in srgb, var(--palette-accent) 30%, transparent);
+
+  --glow-faint: color-mix(in srgb, var(--palette-accent) 10%, transparent);
+  --glow-soft: color-mix(in srgb, var(--palette-accent-light) 5%, transparent);
+  --glow-orb: color-mix(in srgb, var(--palette-accent-light) 20%, transparent);
+  --glow-ring: color-mix(in srgb, var(--palette-accent-light) 60%, transparent);
+
+  --card-from: color-mix(in srgb, var(--palette-accent-bright) 55%, var(--palette-bg));
+  --card-via: color-mix(in srgb, var(--palette-fg) 5%, var(--palette-bg));
+  --card-to: var(--palette-surface);
+  --card-shimmer: color-mix(in srgb, var(--palette-accent-light) 18%, transparent);
+
+  --progress-from: color-mix(in srgb, var(--palette-accent) 80%, transparent);
+  --progress-to: color-mix(in srgb, var(--palette-accent-soft) 80%, transparent);
+
+  --step-active-border: var(--palette-accent);
+  --step-active-bg: color-mix(in srgb, var(--palette-accent) 15%, transparent);
+  --step-active-text: var(--palette-accent-dark);
+  --step-active-shadow: 0 0 30px color-mix(in srgb, var(--palette-accent-light) 25%, transparent);
+
+  --step-pill-active-border: color-mix(in srgb, var(--palette-fg) 30%, transparent);
+  --step-pill-active-bg: color-mix(in srgb, var(--palette-accent) 10%, transparent);
+  --step-pill-active-shadow: 0 0 40px color-mix(in srgb, var(--palette-accent-light) 12%, transparent);
+
+  --step-panel-border: color-mix(in srgb, var(--palette-accent) 25%, transparent);
+  --step-panel-bg: var(--surface-muted);
+  --step-panel-shadow: 0 12px 40px color-mix(in srgb, var(--palette-fg) 12%, transparent);
+
+  --badge-border: color-mix(in srgb, var(--palette-accent) 40%, transparent);
+  --badge-bg: color-mix(in srgb, var(--palette-accent) 10%, transparent);
+  --badge-text: var(--palette-accent-dark);
+
+  --shadow-elevated: 0 20px 60px color-mix(in srgb, var(--palette-fg) 12%, transparent);
+
+  --grid-line: color-mix(in srgb, var(--palette-fg) 8%, transparent);
+}
+
+/*
+ * ═══════════════════════════════════════════════════════
+ * DARK THEME
+ * Edit the accent palette below to retheme dark mode
+ * ═══════════════════════════════════════════════════════
+ */
+.dark {
+  /* Surfaces */
+  --palette-bg: #000000;
+  --palette-fg: #f8fafc;
+  --palette-muted: color-mix(in srgb, var(--palette-fg) 68%, transparent);
+  --palette-surface: #050505;
+
+  /* Accent — dark mode */
+  --palette-accent: #0891b2;
+  --palette-accent-light: #06b6d4;
+  --palette-accent-dark: #0e7490;
+  --palette-accent-bright: #a5f3fc;
+  --palette-accent-soft: #67e8f9;
+
+  --background: var(--palette-bg);
+  --foreground: var(--palette-fg);
+  --muted: var(--palette-muted);
+  --border: color-mix(in srgb, var(--palette-fg) 12%, transparent);
+  --surface: var(--palette-surface);
+  --surface-muted: color-mix(in srgb, var(--palette-fg) 4%, transparent);
+  --surface-overlay: color-mix(in srgb, var(--palette-surface) 80%, transparent);
+  --nav-bg: color-mix(in srgb, var(--palette-bg) 55%, transparent);
+
+  --brand: var(--palette-accent-bright);
+  --accent: var(--palette-accent-bright);
+  --accent-soft: var(--palette-accent-soft);
+  --label: color-mix(in srgb, var(--palette-accent-bright) 70%, transparent);
+  --link: var(--palette-accent-bright);
+
+  --hero-divider: var(--palette-accent-bright);
+
+  --glow-faint: color-mix(in srgb, var(--palette-accent) 10%, transparent);
+  --glow-soft: color-mix(in srgb, var(--palette-accent-light) 5%, transparent);
+  --glow-orb: color-mix(in srgb, var(--palette-accent) 60%, transparent);
+  --glow-ring: color-mix(in srgb, var(--palette-accent-light) 90%, transparent);
+
+  --card-from: color-mix(in srgb, var(--palette-accent-dark) 80%, var(--palette-bg));
+  --card-via: var(--palette-bg);
+  --card-to: var(--palette-bg);
+  --card-shimmer: color-mix(in srgb, var(--palette-accent-light) 18%, transparent);
+
+  --progress-from: color-mix(in srgb, var(--palette-accent) 80%, transparent);
+  --progress-to: color-mix(in srgb, var(--palette-accent-soft) 80%, transparent);
+
+  --step-active-border: var(--palette-accent-soft);
+  --step-active-bg: color-mix(in srgb, var(--palette-accent-light) 20%, transparent);
+  --step-active-text: var(--palette-accent-bright);
+  --step-active-shadow: 0 0 30px color-mix(in srgb, var(--palette-accent-light) 35%, transparent);
+
+  --step-pill-active-border: color-mix(in srgb, var(--palette-fg) 80%, transparent);
+  --step-pill-active-bg: color-mix(in srgb, var(--palette-accent-bright) 10%, transparent);
+  --step-pill-active-shadow: 0 0 40px color-mix(in srgb, var(--palette-accent-light) 12%, transparent);
+
+  --step-panel-border: color-mix(in srgb, var(--palette-accent-light) 25%, transparent);
+  --step-panel-bg: color-mix(in srgb, var(--palette-fg) 4%, transparent);
+  --step-panel-shadow: 0 12px 40px color-mix(in srgb, var(--palette-bg) 35%, transparent);
+
+  --badge-border: color-mix(in srgb, var(--palette-accent-soft) 40%, transparent);
+  --badge-bg: color-mix(in srgb, var(--palette-accent-light) 10%, transparent);
+  --badge-text: var(--palette-accent-bright);
+
+  --shadow-elevated: 0 20px 60px color-mix(in srgb, var(--palette-bg) 45%, transparent);
+
+  --grid-line: color-mix(in srgb, var(--palette-fg) 7%, transparent);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-overlay: var(--surface-overlay);
+  --color-nav-bg: var(--nav-bg);
+  --color-brand: var(--brand);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-label: var(--label);
+  --color-link: var(--link);
+  --color-hero-divider: var(--hero-divider);
+  --color-hover-border: var(--hover-border);
+  --color-hover-border-muted: var(--hover-border-muted);
+  --color-glow-faint: var(--glow-faint);
+  --color-glow-soft: var(--glow-soft);
+  --color-glow-orb: var(--glow-orb);
+  --color-glow-ring: var(--glow-ring);
+  --color-card-from: var(--card-from);
+  --color-card-via: var(--card-via);
+  --color-card-to: var(--card-to);
+  --color-progress-from: var(--progress-from);
+  --color-progress-to: var(--progress-to);
+  --color-step-active-border: var(--step-active-border);
+  --color-step-active-bg: var(--step-active-bg);
+  --color-step-active-text: var(--step-active-text);
+  --color-step-pill-active-border: var(--step-pill-active-border);
+  --color-step-pill-active-bg: var(--step-pill-active-bg);
+  --color-step-panel-border: var(--step-panel-border);
+  --color-step-panel-bg: var(--step-panel-bg);
+  --color-badge-border: var(--badge-border);
+  --color-badge-bg: var(--badge-bg);
+  --color-badge-text: var(--badge-text);
+  --shadow-step-active: var(--step-active-shadow);
+  --shadow-step-pill: var(--step-pill-active-shadow);
+  --shadow-panel: var(--step-panel-shadow);
+  --shadow-elevated: var(--shadow-elevated);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-space-grotesk);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@utility bg-card-shimmer {
+  background-image: radial-gradient(circle at 30% 20%,
+      var(--card-shimmer) 0%,
+      transparent 55%);
+}
+
+@utility bg-section-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 3rem 3rem;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 50%,
+      #000 20%,
+      transparent 20%);
 }
 
 body {

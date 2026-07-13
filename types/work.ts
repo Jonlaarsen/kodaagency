@@ -1,0 +1,43 @@
+export type WorkProject = {
+    id: number;
+    slug: string;
+    title: string;
+    excerpt: string | null;
+    desc: string;
+    thumbnail: string | null;
+    link: string | null;
+    repo_url: string | null;
+    stack: string;
+    category: string;
+    client: string | null;
+    year: number | null;
+    featured: boolean;
+    sort_order: number;
+    status: string;
+    gallery: string[];
+    meta: Record<string, unknown>;
+    created_at: string;
+    updated_at: string;
+};
+
+export type WorkRow = {
+    id: number;
+    slug: string;
+    title: string;
+    excerpt: string | null;
+    desc: string;
+    thumbnail: string | null;
+    link: string | null;
+    repo_url: string | null;
+    stack: string;
+    category: string;
+    client: string | null;
+    year: number | null;
+    featured: number;
+    sort_order: number;
+    status: string;
+    gallery: string;
+    meta: string;
+    created_at: string;
+    updated_at: string;
+};
