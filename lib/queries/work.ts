@@ -1,4 +1,4 @@
-import { getDb } from "@/lib/db";
+import { getDb, isDatabaseConfigured } from "@/lib/db";
 import type { WorkProject, WorkRow } from "@/types/work";
 
 function parseJsonArray(value: string): string[] {
@@ -46,6 +46,10 @@ function mapWorkRow(row: WorkRow): WorkProject {
 }
 
 export async function getPublishedWork(): Promise<WorkProject[]> {
+    if (!isDatabaseConfigured()) {
+        return [];
+    }
+
     const db = getDb();
 
     const result = await db.execute({
